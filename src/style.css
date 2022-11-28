@@ -1,0 +1,596 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    background-color: #191970;
+}
+
+.mainBlock {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 120px;
+    background-color: black;
+}
+
+.linkElement {
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    width: 100%;
+    padding: 15px 15px 20px 30px;
+    transition: 0.45s;
+}
+
+.linkElement:hover {
+    background-color: rebeccapurple;
+}
+
+.content {
+    width: 100%;
+}
+
+.cases {
+    display: flex;
+    flex-direction: row;
+    /* padding: 10px; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.25em;
+    flex-wrap: wrap;
+}
+
+.cases>div {
+    margin: 10px;
+}
+
+.case {
+    background-color: wheat;
+    min-height: 150px;
+    max-height: 269px;
+    padding: 10px;
+    min-width: 200px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.case:hover {
+    scale: 1.06;
+    box-shadow: 20px 14px 8px -11px rgba(0, 0, 0, 1);
+}
+
+.caseInfo {
+    color: white;
+}
+
+.caseName {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    font-size: 30px;
+    color: rgb(0, 76, 207);
+}
+
+.rowsInfo>div {
+    margin: 12px;
+}
+
+.caseInfo>div {
+    margin: 12px;
+}
+
+.caseButtons {
+    display: flex;
+    width: 100%;
+    height: 33px;
+    justify-content: space-between;
+    text-align: center;
+    color: wheat;
+
+}
+
+.editButton {
+    background-color: rgb(25, 0, 87);
+    width: 50%;
+    transition: 0.45s;
+    cursor: pointer;
+    border-top: 1px dashed rgb(25, 0, 87);
+}
+
+.deletButton {
+    background-color: rgb(25, 0, 87);
+    width: 50%;
+    transition: 0.45s;
+    cursor: pointer;
+    border-top: 1px dashed rgb(25, 0, 87);
+}
+
+.deletButton:hover {
+    background-color: rgb(167, 0, 0);
+}
+
+.editButton:hover {
+    background-color: rgb(0, 167, 45);
+}
+
+.overlay {
+    position: absolute;
+    background-color: rgba(6, 130, 238, 0.705);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalDelete {
+    width: 30%;
+    background-color: #191970;
+    height: 150px;
+    box-shadow: 0 0 15px #3535b8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.spanDM {
+    position: absolute;
+    top: -13px;
+    right: -1px;
+    font-size: 2em;
+    color: white;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.spanDM:hover {
+    font-size: 2.5em;
+    color: rgb(0, 255, 0);
+}
+
+.infoDeleteView {
+    padding-top: 50px;
+}
+
+.addNewCase {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    color: green;
+    /* font-weight: bold; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    text-align: start;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.addNewCase:hover {
+    font-size: 5em;
+    color: rgb(0, 195, 0);
+}
+
+.modalNewCase {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    min-height: 500px;
+    background-color: #191970;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: none;
+}
+.titleNCM{
+    font-size: 2.5em;
+    padding-bottom: 15px;
+    color: white;
+}
+.titleNCM>span{
+    color: rgb(4, 255, 4);
+}
+.modalNewCase>div>input,
+.modalNewCase>div>select {
+    border: none;
+    outline: none;
+}
+
+.modalNewCase>div>input {
+    background-color: rgb(206, 206, 253);
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.modalNewCase>div {
+    margin: 10px;
+}
+
+.modalNewCase>div>select {
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+.spanNCM {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 3em;
+    color: white;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 900;
+}
+
+.spanNCM:hover {
+    font-size: 4em;
+    color: rgb(255, 0, 0);
+}
+
+.caseButtonsNCM {
+    display: flex;
+    width: 100%;
+    height: 33px;
+    justify-content: space-between;
+    text-align: center;
+    color: wheat;
+    position: absolute;
+    top: 92%;
+    right: -10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modalEditCase {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    min-height: 500px;
+    background-color: #191970;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: none;
+}
+
+.modalEditCase>div>input,
+.modalEditCase>div>select {
+    border: none;
+    outline: none;
+}
+
+.modalEditCase>div>input {
+    background-color: rgb(206, 206, 253);
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.modalEditCase>div {
+    margin: 5px;
+}
+
+.modalEditCase>div>select {
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.oldValue {
+    color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.caseButtonsECM {
+    display: flex;
+    width: 100%;
+    height: 33px;
+    justify-content: space-between;
+    text-align: center;
+    color: wheat;
+    position: absolute;
+    top: 93%;
+    right: -5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchMenu {
+    margin: 0;
+    padding: 15px;
+    background-color: black;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.searchMenu>div{
+   padding-right: 10px;
+}
+
+.typeSearch {
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+.searchTitle {
+    font-size: 20px;
+    color: white;
+    margin: 10px;
+}
+.inputStyle{
+    background-color: rgb(206, 206, 253);
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+    outline: none;
+}
+.selectStyle{
+     padding: 10px;
+    font-size: 20px;
+    border-radius: 30px;
+    outline: none;
+}
+.searchButton{
+    background-color: rgb(0, 159, 0);
+    color: rgb(172, 255, 205);
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+    outline: none; 
+    min-width: 150px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.searchButton:hover{
+    background-color: rgb(42, 218, 42);
+    color: black;
+    transform: scale(1.09);
+}
+
+/* And CSS for Projects page */
+
+.projects{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* padding: 10px; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.25em;
+    flex-wrap: wrap;
+}
+
+.project{
+    background-color:#7878bb;
+    min-height: 250px;
+    padding: 10px;
+    min-width: 200px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.project:hover {
+    scale: 1.06;
+    box-shadow: 20px 14px 8px -11px rgba(0, 0, 0, 1);
+    background-color:#8b8bd7;
+}
+.projectName {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    font-size: 30px;
+    color: rgb(0, 255, 221);
+    padding: 10px;
+    margin: 10px;
+    
+}
+.projectButtonDelete{
+    position: absolute;
+    top: -12px;
+    right: -10px;
+    width: 15%;
+    height: 35px;
+    border-radius: 3px;
+    text-align: center;
+    color: black;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2em;
+    transform: rotate(45deg);
+}
+
+.projectButtonDelete:hover{
+   color: red;
+   scale: 1.2;
+}
+.projectButtonAddCase{
+    position: absolute;
+    top: -15px;
+    right: 85%;
+    width: 15%;
+    height: 35px;
+    border-radius: 3px;
+    text-align: center;
+    color: rgb(1, 78, 1);
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.projectButtonAddCase:hover{
+   color: rgb(8, 209, 8);
+   scale: 1.2;
+}
+.projectCase{
+    padding: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.projectCase:hover{
+    background-color: #8b8beb;
+    color: rgb(0, 255, 221); 
+    scale: 1.06;
+    box-shadow: 0px 0px 30px 5px rgb(0, 255, 221); 
+}
+.caseP {
+    background-color: wheat;
+    min-height: 300px;
+    max-height: 538px;
+    padding: 10px;
+    min-width: 400px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+    font-size: 2em;
+}
+
+.caseP:hover {
+    scale: 1.06;
+    box-shadow: 20px 14px 8px -11px rgba(0, 0, 0, 1);
+}
+.caseButtonsP {
+    display: flex;
+    width: 100%;
+    height: 66px;
+    margin-top: 80px;
+    justify-content: space-between;
+    text-align: center;
+    color: wheat;
+
+}
+.caseButtonsP>div{
+    width: 100%;
+}
+.caseInfoP>div {
+    margin: 24px;
+}
+.caseInfoP{
+    color: white; 
+}
+.caseNameP {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    font-size: 60px;
+    color: rgb(0, 76, 207);
+}
+
+.modalProjectCase{
+    position: relative;
+}
+.modalProjectCase>.caseP>span{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 1.5em;
+    color: white;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 900;
+}
+.modalProjectCase{
+    position: relative;
+}
+.modalProjectCase>.caseP>span:hover{
+   scale: 1.75;
+   color: red;
+
+}
+.spanNPM{
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    color: green;
+    /* font-weight: bold; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    text-align: start;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.spanNPM:hover{
+    font-size: 5em;
+    color: rgb(0, 195, 0);
+}
+.modalNewProject{
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    min-height: 300px;
+    background-color: #191970;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: none;
+}
+.modalNewProject>div>input{
+    outline: none;
+    background-color: rgb(206, 206, 253);
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.caseButtonsNPM{
+    display: flex;
+    position:absolute;
+    width: 100%;
+    height: 33px;
+    justify-content: space-between;
+    text-align: center;
+    color: wheat;
+    top:267px;
+}
